@@ -25,19 +25,20 @@
       <nav class="menu">
         <div class="menu__list">
           <button class="menu__item menu__item_active">
-            <img src="images/programming_btn.svg" alt="programming_btn" class="img">
+            <img src="images/programming_btn.svg" alt="programming_btn" class="menu__img">
           </button>
           <button class="menu__item">
-            <img src="images/language_btn.svg" alt="language_btn" class="img">
+            <img src="images/language_btn.svg" alt="language_btn" class="menu__img">
           </button>
         </div>
         <button class="menu__add">
-          <img src="images/add_btn.svg" alt="plus" class="img">
+          <img src="images/add_btn.svg" alt="plus" class="menu__img">
         </button>
       </nav>
 
     </div>
     <div class="content">
+      <!-- Header -->
       <header class="header">
         <h1 class="h1">Study TypeScript</h1>
         <div class="progress">
@@ -51,28 +52,28 @@
           </div>
         </div>
       </header>
+      <!-- Main -->
       <main class="main">
         <div>
+          <!-- Element 1 -->
           <div class="habbit">
-            <div class="habbit__day">
-              Day 1
-            </div>
-            <div class="habbit__comment">
-              First day was so great!
-            </div>
+            <div class="habbit__day">Day 1</div>
+            <div class="habbit__comment">First day was so great!</div>
             <button class="habbit__delete">
               <img src="images/garbage.svg" alt="garbage">
             </button>
           </div>
 
+          <!-- Add new element -->
           <div class="habbit">
             <div class="habbit__day">Day 2</div>
             <form class="habbit__form">
-              <input class="input input_icon" type="text" placeholder="Comment">
-              <img class="input__icon" src="images/comment.svg" alt="comment">
-              <button class="form_btn">Add</button>
+              <input class="habbit__form-input" type="text" placeholder="Comment">
+              <img class="habbit__form-icon" src="images/comment.svg" alt="comment">
+              <button class="habbit__form-btn">Add</button>
             </form>
           </div>
+
         </div>
       </main>
     </div>

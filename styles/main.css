@@ -1,16 +1,21 @@
+/* Basic */
 * {
   box-sizing: border-box;
 }
 
 :root {
   --main-bg-color: #F3F6FD;
-  --main: #B32166;
+  --second-bg-color: #FFFFFF;
+  --primary-color: #B32166;
+  --primary-dark-color: #9f094f;
+  --primary-opacity-color: rgb(179, 33, 102, 0.5);
+  --shadow-color: rgba(179,33,102,0.15);
 }
 
 body {
   font-family: "Nunito", serif;
-  margin: 0;
   background: var(--main-bg-color);
+  margin: 0;
 }
 
 .app {
@@ -18,18 +23,23 @@ body {
   flex-direction: row; 
 }
 
+
+/* Sidebar */
 .sidebar {
-  background: white;
+  background: var(--second-bg-color);
   min-height: 100vh;
   padding: 30px;
 }
 
-.img {
-  height: 35px;
-}
-
 .logo {
   margin-bottom: 50px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
 }
 
 .menu__list {
@@ -38,18 +48,11 @@ body {
   gap: 25px;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
-}
-
 .menu__item {
-  background: #FFFFFF;
-  -webkit-box-shadow: 0px 10px 20px 4px rgba(179,33,101,0.15);
-  -moz-box-shadow: 0px 10px 20px 4px rgba(179,33,101,0.15);
-  box-shadow: 0px 10px 20px 4px rgba(179,33,101,0.15);
+  background: var(--second-bg-color);
+  -webkit-box-shadow: 0px 10px 20px 4px var(--shadow-color);
+  -moz-box-shadow: 0px 10px 20px 4px var(--shadow-color);
+  box-shadow: 0px 10px 20px 4px var(--shadow-color);
   border-radius: 14px;
   border: none;
   height: 65px;
@@ -63,7 +66,7 @@ body {
 }
 
 .menu__item:hover { 
-  background-color: rgb(179, 33, 102, 0.5);
+  background: var(--primary-opacity-color);
 }
 
 .menu__item:hover img { 
@@ -71,7 +74,7 @@ body {
 }
 
 .menu__item_active {
-  background-color: #B32166;
+  background: var(--primary-color);
 }
 
 .menu__item_active img {
@@ -79,12 +82,16 @@ body {
 }
 
 .menu__item_active:hover {
-  background: #9f094f;
+  background: var(--primary-dark-color);
+}
+
+.menu__img {
+  height: 35px;
 }
 
 .menu__add {
   background: none;
-  border: 2px solid rgba(179,33,102,0.5);
+  border: 2px solid var(--primary-opacity-color);
   border-radius: 14px;
   height: 65px;
   width: 65px;
@@ -96,9 +103,8 @@ body {
   cursor: pointer; 
 }
 
-
 .menu__add:hover { 
-  background-color: rgb(179, 33, 102, 0.08);
+  background: var(--shadow-color);
 }
 
 
@@ -117,11 +123,10 @@ body {
 .content {
   min-width: 900px;
   padding: 30px 60px;
-  
 }
 
 .h1 {
-  color: #B32166;
+  color: var(--primary-color);
 }
 
 
@@ -151,7 +156,7 @@ body {
 
 .progress__bar {
   width: 100%;
-  background-color: rgb(179, 33, 102, 0.08);
+  background: var(--shadow-color);
   border-radius: 4px;
   height: 5px;
   position: relative;
@@ -162,7 +167,7 @@ body {
   width: 69%;
   height: 5px;
   border-radius: 4px;
-  background: #B32166;
+  background: var(--primary-color);
 }
 
 .main {
@@ -171,7 +176,7 @@ body {
 
 
 .habbit {
-  background: #FFFFFF;
+  background: var(--second-bg-color);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -203,7 +208,7 @@ body {
 }
 
 .habbit__delete:hover {
-  background-color: #edeff9;
+  background: #edeff9;
 }
 
 
@@ -216,8 +221,8 @@ body {
   position: relative;
 }
 
-.input {
-  background: #FFFFFF;
+.habbit__form-input {
+  background: var(--second-bg-color);
   border: 1px solid #E7EBFB;
   border-radius: 9px;
   padding: 12px 20px;
@@ -226,26 +231,26 @@ body {
   padding-left: 45px;
 }
 
-.input::placeholder {
+.habbit__form-input::placeholder {
   color: #8899A8;
 }
 
-.input__icon {
+.habbit__form-icon {
   position: absolute;
   top: 10px;
   left: 45px;
 } 
 
-.form_btn {
-  background: rgb(179, 33, 102, 0.5);
+.habbit__form-btn {
+  background: var(--primary-opacity-color);
   border-radius: 9px;
   border: none;
   font-size: 13px;
-  color: #ffffff;
+  color: var(--second-bg-color);
   padding: 14px 30px;
   cursor: pointer;
 }
 
-.form_btn:hover {
-  background: #B32166;
+.habbit__form-btn:hover {
+  background: var(--primary-color);
 }
