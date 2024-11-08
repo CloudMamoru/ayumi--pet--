@@ -4,13 +4,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+
   <title>Ayumi</title>
-  <script src="js/index.js"></script>
+  <script src="scripts/app.js" defer></script>
 </head>
 
 <body>
+  <div class="app">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Logo -->
+      <img src="images/logo.svg" alt="logo" class="logo">
+      <!-- Menu -->
+      <nav class="menu">
+        <div class="menu__list">
+          <button class="menu__item menu__item_active">
+            <img src="images/programming_btn.svg" alt="programming_btn" class="img">
+          </button>
+          <button class="menu__item">
+            <img src="images/language_btn.svg" alt="language_btn" class="img">
+          </button>
+        </div>
+        <button class="menu__add">
+          <img src="images/add_btn.svg" alt="plus" class="img">
+        </button>
+      </nav>
 
+    </div>
+    <div class="content">
+      <header class="header">
+        <h1 class="h1">Study TypeScript</h1>
+        <div class="progress">
+          <div class="progress__text">
+            <div class="progress__name">Progress</div>
+            <div class="progress__percent">69%</div>
+          </div>
+          <div class="progress__bar">
+            <div class="progress__cover-bar">
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
 </body>
 
 </html>
