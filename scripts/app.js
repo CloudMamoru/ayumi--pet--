@@ -156,6 +156,13 @@ function deleteDay(event) {
   saveData(); 
 }
 
+
+function togglePopup() {
+  const cover = document.querySelector('.cover');
+  cover.classList.toggle('cover_hidden');
+}
+
+
 /* init */
 (() => {
   loadData();

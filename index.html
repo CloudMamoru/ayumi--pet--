@@ -26,7 +26,7 @@
         <div class="menu__list">
           <!-- Elements from localStorage -->
         </div>
-        <button class="menu__add">
+        <button class="menu__add" onclick="togglePopup()">
           <img src="images/add_btn.svg" alt="plus" class="menu__img">
         </button>
       </nav>
@@ -56,12 +56,37 @@
         <div class="habit">
           <div class="habit__day habit__day-add">Day _</div>
           <form class="habit__form" onsubmit="addDay(event)">
-            <input name="comment" class="habit__form-input" type="text" placeholder="Comment">
+            <input name="comment" class="input" type="text" placeholder="Comment">
             <img class="habit__form-icon" src="images/comment.svg" alt="comment">
-            <button class="habit__form-btn" type="submit">Add</button>
+            <button class="button" type="submit">Add</button>
           </form>
         </div>
       </main>
+    </div>
+    <div class="cover cover_hidden">
+      <div class="popup">
+        <h2 class="h2">New habit</h2>
+        <div class="icon-label">Icon</div>
+        <div class="icon-select">
+          <button class="icon">
+            <img src="./images/programming.svg" alt="programming" class="svg">
+          </button>
+          <button class="icon icon_active">
+            <img src="./images/language.svg" alt="programming" class="svg">
+          </button>
+          <button class="icon">
+            <img src="./images/other.svg" alt="other" class="svg">
+          </button>
+        </div>
+        <form class="popup__form">
+          <input type="text" name="name" placeholder="Name" class="input">
+          <input type="number" name="target" placeholder="Aim" class="input">
+          <button class="button" type="submit">Add</button>
+        </form>
+        <button class="popup__close" onclick="togglePopup()">
+          <img src="./images/close.svg" alt="close" class="svg">
+        </button>
+      </div>
     </div>
   </div>
 </body>
