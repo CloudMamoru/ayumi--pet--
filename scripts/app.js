@@ -5,7 +5,12 @@ const HABIT_KEY = 'HABIT_KEY';
 
 /* page */
 const page = {
-  menu: document.querySelector('.menu__list')
+  menu: document.querySelector('.menu__list'),
+  header: {
+    h1: document.querySelector('.h1'),
+    progressPercent: document.querySelector('.progress__percent'),
+    progressCoverBar: document.querySelector('.progress__cover-bar')
+  }
 }
 
 
@@ -54,9 +59,23 @@ function rerenderMenu(activeHabit) {
 
 }
 
+function rerenderHead(activeHabit) {
+  if (!activeHabit) return
+
+  page.header.h1.innerText = activeHabit.name;
+  const currentProgress = activeHabit.days.length / activeHabit.target;
+  const progress = currentProgress > 1 ? 100 : 100 * currentProgress;
+  
+  page.header.progressPercent.innerText = `${progress.toFixed(0)}%`;
+  page.header.progressCoverBar.setAttribute('style', `width:${progress}%;`)
+  
+}
+
+
 function rerender(activeHabitId) {
   const activeHabit = habits.find(habit => habit.id === activeHabitId);
   rerenderMenu(activeHabit);
+  rerenderHead(activeHabit);
 }
 
 

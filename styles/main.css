@@ -146,10 +146,10 @@ body {
 
 .progress__cover-bar {
   position: absolute;
-  width: 69%;
   height: 5px;
   border-radius: 4px;
   background: var(--primary-color);
+  transition: all 0.5s;
 }
 
 /* Content - Main */
