@@ -68,19 +68,20 @@
         <h2 class="h2">New habit</h2>
         <div class="icon-label">Icon</div>
         <div class="icon-select">
-          <button class="icon">
+          <button class="icon icon_active" onclick="setIcon(this, 'programming')">
             <img src="./images/programming.svg" alt="programming" class="svg">
           </button>
-          <button class="icon icon_active">
-            <img src="./images/language.svg" alt="programming" class="svg">
+          <button class="icon" onclick="setIcon(this, 'language')">
+            <img src="./images/language.svg" alt="language" class="svg">
           </button>
-          <button class="icon">
+          <button class="icon" onclick="setIcon(this, 'other')">
             <img src="./images/other.svg" alt="other" class="svg">
           </button>
         </div>
-        <form class="popup__form">
+        <form class="popup__form" onsubmit="addHabit(event)">
           <input type="text" name="name" placeholder="Name" class="input">
           <input type="number" name="target" placeholder="Aim" class="input">
+          <input type="text" name="icon" hidden placeholder="Icon" value="programming">
           <button class="button" type="submit">Add</button>
         </form>
         <button class="popup__close" onclick="togglePopup()">

@@ -100,26 +100,40 @@ function rerenderBody(activeHabit) {
 
 function rerender(activeHabitId) {
   globalActiveHabitId = activeHabitId;
-
   const activeHabit = habits.find(habit => habit.id === activeHabitId);
-  rerenderMenu(activeHabit);
+  if (!activeHabit) return
+
+  document.location.replace(document.location.pathname + `#${activeHabitId}`)
+
+  rerenderMenu(activeHabit); 
   rerenderHead(activeHabit);
   rerenderBody(activeHabit);
 }
 
-/* add days */
-function addDay(event) {
-  event.preventDefault();
+function getFormValue(event, name) {
   const form = event.target;
 
   // FormDataAPI (Without: event.target.comment.value; )
   const data = new FormData(event.target); 
-  const comment = data.get('comment');
-  form['comment'].classList.remove('error');
+  const comment = data.get(name);
+  form[name].classList.remove('error');
   if (!comment) {
-    form['comment'].classList.add('error')
-    form['comment'].onfocus = function () { this.classList.remove('error') };
-  } else {
+    form[name].classList.add('error')
+    form[name].onfocus = function () { this.classList.remove('error') };
+    return ''
+  }
+
+  return comment;
+}
+
+/* work with days */
+function addDay(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  const comment = getFormValue(event, 'comment')
+  
+  if (comment) {
     habits = habits.map(habit => {
       if (habit.id === globalActiveHabitId) {
         return {
@@ -162,10 +176,49 @@ function togglePopup() {
   cover.classList.toggle('cover_hidden');
 }
 
+/* work with habits */
+function setIcon(context, icon) {
+  document.querySelector(`.popup__form input[name="icon"]`).value = icon;
+  const activeIcon = document.querySelector('.icon.icon_active');
+  activeIcon.classList.remove('icon_active');
+  context.classList.add('icon_active')
+}
+
+function addHabit(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  const name = getFormValue(event, 'name');
+  const target = Number(getFormValue(event, 'target'));
+  const icon = getFormValue(event, 'icon')
+
+  if (name && target && icon) {
+    const id = habits[habits.length - 1].id + 1
+
+    const newHabit = {
+      id,
+      icon,
+      name,
+      target,
+      "days": []
+    }
+
+    habits = [...habits, newHabit]
+
+    form['name'].value = '';
+    form['target'].value = '';
+
+    togglePopup()
+    rerender(id)
+    saveData()
+  }
+}
 
 /* init */
 (() => {
   loadData();
+  const hash = document.location.hash
+  const currentId = hash ? Number(hash.slice(1)) : 1
 
-  rerender(1)
+  rerender(currentId)
 })()
