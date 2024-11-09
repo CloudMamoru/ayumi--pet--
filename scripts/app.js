@@ -10,6 +10,10 @@ const page = {
     h1: document.querySelector('.h1'),
     progressPercent: document.querySelector('.progress__percent'),
     progressCoverBar: document.querySelector('.progress__cover-bar')
+  },
+  main: {
+    days: document.querySelector('.days'),
+    addDay: document.querySelector('.habit__day-add')
   }
 }
 
@@ -71,11 +75,32 @@ function rerenderHead(activeHabit) {
   
 }
 
+function rerenderBody(activeHabit) {
+  if (!activeHabit) return 
+  page.main.days.innerHTML = '';
+
+  for (const [index, day] of activeHabit.days.entries()) {
+    const item = document.createElement('div');
+    item.classList.add('habit');
+    const tag = `<div class="habit__day">Day ${index + 1}</div>
+                 <div class="habit__comment">${day.comment}</div>
+                 <button class="habit__delete">
+                   <img src="images/garbage.svg" alt="garbage">
+                 </button>
+                 `
+
+    item.innerHTML = tag;
+    page.main.days.appendChild(item);
+  }
+  page.main.addDay.innerText = `Day ${activeHabit.days.length + 1}`;
+}
+
 
 function rerender(activeHabitId) {
   const activeHabit = habits.find(habit => habit.id === activeHabitId);
   rerenderMenu(activeHabit);
   rerenderHead(activeHabit);
+  rerenderBody(activeHabit);
 }
 
 
