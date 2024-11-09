@@ -86,7 +86,7 @@ function rerenderBody(activeHabit) {
     item.classList.add('habit');
     const tag = `<div class="habit__day">Day ${index + 1}</div>
                  <div class="habit__comment">${day.comment}</div>
-                 <button class="habit__delete">
+                 <button class="habit__delete" onclick="deleteDay(event)">
                    <img src="images/garbage.svg" alt="garbage">
                  </button>
                  `
@@ -136,6 +136,25 @@ function addDay(event) {
   }
 }
 
+function deleteDay(event) {
+  const habit = event.target.closest('.habit');
+  const dayNumber = habit.querySelector('.habit__day').innerText.slice(4);
+
+  habits = habits.map(habit => {
+    if (habit.id === globalActiveHabitId) {
+        habit.days.splice(dayNumber - 1, 1)
+        return {
+          ...habit,
+          days: habit.days
+        }
+      } else {
+        return habit
+      }
+  })
+
+  rerender(globalActiveHabitId);
+  saveData(); 
+}
 
 /* init */
 (() => {
