@@ -157,7 +157,7 @@ body {
   margin-top: 30px;
 }
 
-.habbit {
+.habit {
   background: var(--second-bg-color);
   border-radius: 10px;
   display: flex;
@@ -165,7 +165,7 @@ body {
   margin-bottom: 15px;
 }
 
-.habbit__day {
+.habit__day {
   background: #FBFAFF;
   border-radius: 10px 0 0 10px;
   border-right: 1px solid var(--grey-second);
@@ -175,12 +175,12 @@ body {
   font-weight: 500;
 }
 
-.habbit__comment {
+.habit__comment {
   font-size: 16px;
   padding: 20px 25px;
 }
 
-.habbit__delete {
+.habit__delete {
   margin-left: auto;
   margin-right: 11px;
   background: none;
@@ -190,11 +190,11 @@ body {
   padding: 3px;
 }
 
-.habbit__delete:hover {
+.habit__delete:hover {
   background: #edeff9;
 }
 
-.habbit__form {
+.habit__form {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -203,7 +203,7 @@ body {
   position: relative;
 }
 
-.habbit__form-input {
+.habit__form-input {
   background: var(--second-bg-color);
   border: 1px solid var(--grey-second);
   border-radius: 9px;
@@ -212,22 +212,22 @@ body {
   flex: 1;
 }
 
-.habbit__form-input:focus {
+.habit__form-input:focus {
   outline: none;
   border: 2px solid var(--primary-opacity-color);
 }
 
-.habbit__form-input::placeholder {
+.habit__form-input::placeholder {
   color: var(--grey);
 }
 
-.habbit__form-icon {
+.habit__form-icon {
   position: absolute;
   top: 12px;
   left: 45px;
 }
 
-.habbit__form-btn {
+.habit__form-btn {
   background: var(--primary-color);
   border-radius: 10px;
   border: none;
@@ -237,6 +237,6 @@ body {
   cursor: pointer;
 }
 
-.habbit__form-btn:hover {
+.habit__form-btn:hover {
   background: var(--primary-dark-color);
 }
