@@ -1,7 +1,9 @@
 'use strict'
 
+/* state */
 let habits = [];
 const HABIT_KEY = 'HABIT_KEY';
+let globalActiveHabitId;
 
 /* page */
 const page = {
@@ -97,10 +99,41 @@ function rerenderBody(activeHabit) {
 
 
 function rerender(activeHabitId) {
+  globalActiveHabitId = activeHabitId;
+
   const activeHabit = habits.find(habit => habit.id === activeHabitId);
   rerenderMenu(activeHabit);
   rerenderHead(activeHabit);
   rerenderBody(activeHabit);
+}
+
+/* add days */
+function addDay(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  // FormDataAPI (Without: event.target.comment.value; )
+  const data = new FormData(event.target); 
+  const comment = data.get('comment');
+  form['comment'].classList.remove('error');
+  if (!comment) {
+    form['comment'].classList.add('error')
+    form['comment'].onfocus = function () { this.classList.remove('error') };
+  } else {
+    habits = habits.map(habit => {
+      if (habit.id === globalActiveHabitId) {
+        return {
+          ...habit,
+          days: [...habit.days, { comment }]
+        }
+      } else {
+        return habit
+      }
+    })
+    form['comment'].value = ''; 
+    rerender(globalActiveHabitId);
+    saveData();
+  }
 }
 
 

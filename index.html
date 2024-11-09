@@ -55,10 +55,10 @@
         <!-- Add new element -->
         <div class="habit">
           <div class="habit__day habit__day-add">Day _</div>
-          <form class="habit__form">
-            <input class="habit__form-input" type="text" placeholder="Comment">
+          <form class="habit__form" onsubmit="addDay(event)">
+            <input name="comment" class="habit__form-input" type="text" placeholder="Comment">
             <img class="habit__form-icon" src="images/comment.svg" alt="comment">
-            <button class="habit__form-btn">Add</button>
+            <button class="habit__form-btn" type="submit">Add</button>
           </form>
         </div>
       </main>

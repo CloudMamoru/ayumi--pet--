@@ -209,6 +209,7 @@ body {
   border-radius: 9px;
   padding: 12px 20px 12px 45px;
   font-family: "Nunito", serif;
+  font-size: 16px;
   flex: 1;
 }
 
@@ -219,6 +220,11 @@ body {
 
 .habit__form-input::placeholder {
   color: var(--grey);
+}
+
+.habit__form-input.error {
+   border: 2px solid red;
+   background-color: rgba(179, 33, 102, 0.05);
 }
 
 .habit__form-icon {
