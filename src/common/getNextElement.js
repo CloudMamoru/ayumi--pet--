@@ -20,7 +20,5 @@ export function getNextElement(array, indexObj) {
     updatedArray = removeElementByIndex(arr, elementIndex);
   }
 
-  console.log(idNextElement);
-
   return { idNextElement, updatedArray };
 }
