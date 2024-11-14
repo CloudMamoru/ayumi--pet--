@@ -1,8 +1,54 @@
 'use strict';
+import { getFormValue } from './common/getFormValue';
 import { loadData, saveData } from './common/localeStorage';
-import { renderBody } from './common/renderBody';
-import { renderHead } from './common/renderHead';
-import { renderMenu } from './common/renderMenu';
+import { renderBody } from './components/Body/renderBody';
+import { renderHead } from './components/Head/renderHead';
+import { renderMenu } from './components/Menu/renderMenu';
+
+/**
+ * * Object containing references to DOM elements for easy access throughout the app.
+ *
+ * @property {Element} menu - Reference to the habit menu container.
+ * @property {Object} header - References for header UI components.
+ * @property {Element} header.h1 - Title element for the habit.
+ * @property {Element} header.progressPercent - Element showing progress percentage.
+ * @property {Element} header.progressCoverBar - Element displaying progress bar fill.
+ * @property {Object} main - References for main content UI components.
+ * @property {Element} main.days - Container for habit tracking days.
+ * @property {Element} main.addDay - Button for adding new days to the habit.
+ */
+
+const page = {
+  menu: document.querySelector('.menu__list'),
+  header: {
+    h1: document.querySelector('.h1'),
+    progressPercent: document.querySelector('.progress__percent'),
+    progressCoverBar: document.querySelector('.progress__cover-bar'),
+  },
+  main: {
+    days: document.querySelector('.days'),
+    addDay: document.querySelector('.habit__day-add'),
+  },
+};
+
+/**
+ * * Global state object to manage application state and control rendering.
+ *
+ * @property {Array} habits - Array to store habit objects.
+ * @property {string|undefined} globalActiveHabitId - ID of the currently active habit.
+ * @property {Object|undefined} activeHabit - The currently active habit object.
+ * @property {string} HABIT_KEY - Key used to store and retrieve habit data from localStorage.
+ * @property {Function} rerender - Function to update and rerender UI based on the active habit.
+ * @property {Object} page - References to DOM elements for UI components.
+ */
+let state = {
+  habits: [],
+  globalActiveHabitId: undefined,
+  activeHabit: undefined,
+  HABIT_KEY: 'HABIT_KEY',
+  rerender: rerender,
+  page: page,
+};
 
 /* rerender */
 function rerender(activeHabitId) {
@@ -17,58 +63,15 @@ function rerender(activeHabitId) {
   renderBody(state);
 }
 
-/* page */
-const page = {
-  menu: document.querySelector('.menu__list'),
-  header: {
-    h1: document.querySelector('.h1'),
-    progressPercent: document.querySelector('.progress__percent'),
-    progressCoverBar: document.querySelector('.progress__cover-bar'),
-  },
-  main: {
-    days: document.querySelector('.days'),
-    addDay: document.querySelector('.habit__day-add'),
-  },
-};
-
-/* state */
-let state = {
-  habits: [],
-  globalActiveHabitId: undefined,
-  activeHabit: undefined,
-  HABIT_KEY: 'HABIT_KEY',
-  rerender: rerender,
-  page: page,
-};
-
-function getFormValue(event, name) {
-  const form = event.target;
-
-  // FormDataAPI (Without: event.target.comment.value; )
-  const data = new FormData(event.target);
-  const comment = data.get(name);
-  form[name].classList.remove('error');
-  if (!comment) {
-    form[name].classList.add('error');
-    form[name].onfocus = function () {
-      this.classList.remove('error');
-    };
-    return '';
-  }
-
-  return comment;
-}
-
 /* work with days */
 function addDay(event) {
-  console.log('addDay');
   event.preventDefault();
   const form = event.target;
 
   const comment = getFormValue(event, 'comment');
 
   if (comment) {
-    habits = state.habits.map((habit) => {
+    state.habits = state.habits.map((habit) => {
       if (habit.id === state.globalActiveHabitId) {
         return {
           ...habit,
@@ -104,12 +107,13 @@ function deleteDay(event) {
   saveData(state.habits, state.HABIT_KEY);
 }
 
+/* show and hide popup for add new hide */
 function togglePopup() {
   const cover = document.querySelector('.cover');
   cover.classList.toggle('cover_hidden');
 }
 
-/* work with habits */
+/* work with habit form */
 function setIcon(context, icon) {
   document.querySelector(`.popup__form input[name="icon"]`).value = icon;
   const activeIcon = document.querySelector('.icon.icon_active');

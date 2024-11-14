@@ -123,6 +123,11 @@ body {
   min-width: 235px; /* <-- Need change */
 }
 
+/* Hide progress-bar */
+.progress-hidden {
+  display: none;
+}
+
 .progress__text, .progress__name, .progress__percent {
   font-size: 14px;
 }
