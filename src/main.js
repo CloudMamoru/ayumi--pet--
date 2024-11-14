@@ -1,4 +1,5 @@
 'use strict'
+import { loadData, saveData } from "./common/localeStorage";
 
 /* state */
 let habits = [];
@@ -20,16 +21,18 @@ const page = {
 }
 
 
-/* utils */
-function loadData() {
-  const habitsString = localStorage.getItem(HABIT_KEY);
-  const habitsArray = JSON.parse(habitsString);
-  if (Array.isArray(habitsArray)) habits = habitsArray;
-} 
+// /* utils */
+// function loadData(habits, key) {
+//   const habitsString = localStorage.getItem(key);
+//   const habitsArray = JSON.parse(habitsString);
+//   if (Array.isArray(habitsArray)) {
+//     habits.push(...habitsArray);
+//   }
+// } 
 
-function saveData() {
-  localStorage.setItem(HABIT_KEY, JSON.stringify(habits));
-} 
+// function saveData(habits, key) {
+//   localStorage.setItem(key, JSON.stringify(habits));
+// } 
 
 /* render */
 function rerenderMenu(activeHabit) {
@@ -146,7 +149,7 @@ function addDay(event) {
     })
     form['comment'].value = ''; 
     rerender(globalActiveHabitId);
-    saveData();
+    saveData(habits, HABIT_KEY);
   }
 }
 
@@ -167,7 +170,7 @@ function deleteDay(event) {
   })
 
   rerender(globalActiveHabitId);
-  saveData(); 
+  saveData(habits, HABIT_KEY); 
 }
 
 
@@ -210,13 +213,13 @@ function addHabit(event) {
 
     togglePopup()
     rerender(id)
-    saveData()
+    saveData(habits, HABIT_KEY)
   }
 }
 
 /* init */
 (() => {
-  loadData();
+  loadData(habits, HABIT_KEY);
   const hash = document.location.hash
   const currentId = hash ? Number(hash.slice(1)) : 1
 
