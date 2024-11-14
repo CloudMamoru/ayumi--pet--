@@ -111,6 +111,12 @@ body {
   align-items: center;
 }
 
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 .h1 {
   color: var(--primary-color);
   font-weight: 400;
@@ -123,7 +129,6 @@ body {
   min-width: 235px; /* <-- Need change */
 }
 
-/* Hide progress-bar */
 .progress-hidden {
   display: none;
 }
@@ -157,6 +162,23 @@ body {
   transition: all 0.5s;
 }
 
+.header__close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.header__close-btn-hidden {
+  display: none;
+}
+
+.header__close-btn img {
+  box-sizing: border-box;
+  margin-top: 5px;
+  height: 40.5px;
+}
+
+
 /* Content - Main */
 .main {
   margin-top: 30px;
@@ -168,6 +190,10 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+}
+
+.habit-hidden {
+  display: none;
 }
 
 .habit__day {

@@ -1,5 +1,13 @@
+import { renderInfo } from './Info/renderInfo';
+
 export function renderBody({ activeHabit, page }) {
-  if (!activeHabit) return;
+  if (!activeHabit) {
+    page.main.habit.classList.add('habit-hidden');
+    page.main.days.innerHTML = renderInfo();
+    return;
+  }
+
+  page.main.habit.classList.remove('habit-hidden');
   page.main.days.innerHTML = '';
 
   for (const [index, day] of activeHabit.days.entries()) {

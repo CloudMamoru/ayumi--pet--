@@ -32,15 +32,20 @@
     <div class="content">
       <header class="header">
         <h1 class="h1">Habit tracker</h1>
-        <div class="progress">
-          <div class="progress__text">
-            <div class="progress__name">Progress</div>
-            <div class="progress__percent">%</div>
-          </div>
-          <div class="progress__bar">
-            <div class="progress__cover-bar">
+        <div class="header__wrapper">
+          <div class="progress">
+            <div class="progress__text">
+              <div class="progress__name">Progress</div>
+              <div class="progress__percent">%</div>
+            </div>
+            <div class="progress__bar">
+              <div class="progress__cover-bar">
+              </div>
             </div>
           </div>
+          <button class="header__close-btn" onclick="closeHabit()">
+            <img src="images/close_habit.svg" alt="Close habit" />
+          </button>
         </div>
       </header>
       <main class="main">
@@ -50,7 +55,7 @@
         <!-- Add new element -->
         <div class="habit">
           <div class="habit__day habit__day-add">Day _</div>
-          <form class="habit__form" onsubmit="addDay(event, state)">
+          <form class="habit__form" onsubmit="addDay(event)">
             <input name="comment" class="input" type="text" placeholder="Comment">
             <img class="habit__form-icon" src="images/comment.svg" alt="comment">
             <button class="button" type="submit">Add</button>

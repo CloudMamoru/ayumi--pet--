@@ -1,5 +1,6 @@
 'use strict';
 import { getFormValue } from './common/getFormValue';
+import { getNextElement } from './common/getNextElement';
 import { loadData, saveData } from './common/localeStorage';
 import { renderBody } from './components/Body/renderBody';
 import { renderHead } from './components/Head/renderHead';
@@ -22,12 +23,15 @@ const page = {
   menu: document.querySelector('.menu__list'),
   header: {
     h1: document.querySelector('.h1'),
+    progress: document.querySelector('.progress'),
+    closeBtn: document.querySelector('.header__close-btn'),
     progressPercent: document.querySelector('.progress__percent'),
     progressCoverBar: document.querySelector('.progress__cover-bar'),
   },
   main: {
     days: document.querySelector('.days'),
     addDay: document.querySelector('.habit__day-add'),
+    habit: document.querySelector('.habit'),
   },
 };
 
@@ -52,11 +56,14 @@ let state = {
 
 /* rerender */
 function rerender(activeHabitId) {
+  if (state.habits.length === 0) {
+    activeHabitId = undefined;
+  }
   state.globalActiveHabitId = activeHabitId;
   state.activeHabit = state.habits.find((habit) => habit.id === activeHabitId);
-  if (!state.activeHabit) return;
-
-  document.location.replace(document.location.pathname + `#${activeHabitId}`);
+  if (state.activeHabit) {
+    document.location.replace(document.location.pathname + `#${activeHabitId}`);
+  }
 
   renderMenu(state);
   renderHead(state);
@@ -130,7 +137,12 @@ function addHabit(event) {
   const icon = getFormValue(event, 'icon');
 
   if (name && target && icon) {
-    const id = state.habits[state.habits.length - 1].id + 1;
+    let id;
+    if (state.habits.length === 0) {
+      id = 0;
+    } else {
+      id = state.habits[state.habits.length - 1].id + 1;
+    }
 
     const newHabit = {
       id,
@@ -151,11 +163,25 @@ function addHabit(event) {
   }
 }
 
+/* Close habit */
+function closeHabit() {
+  const userAnswer = confirm('Are you sure you want to break the habit?');
+  if (!userAnswer) return;
+
+  const res = getNextElement(state.habits, state.globalActiveHabitId);
+
+  state.habits = res.updatedArray;
+  state.globalActiveHabitId = res.idNextElement;
+
+  saveData(state.habits, state.HABIT_KEY);
+  rerender(state.globalActiveHabitId);
+}
+
 /* init */
 (() => {
   loadData(state.habits, state.HABIT_KEY);
   const hash = document.location.hash;
-  const currentId = hash ? Number(hash.slice(1)) : 1;
+  const currentId = hash ? Number(hash.slice(1)) : 0;
 
   rerender(currentId);
 })();
