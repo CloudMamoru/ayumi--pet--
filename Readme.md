@@ -12,5 +12,14 @@ their goals and form healthy habits in a comfortable and motivating environment.
 2.Add a daily comment to track your progress<br>
 ![Add daily comment](/md_icons/dailyComment.png)
 
-3.Check your progress<br>
-![Check progress](/md_icons/checkProgress.png)
+3.You can have an unlimited number of habits and switch between them<br>
+![habits](/md_icons/habits.png)
+
+<h2>Technologies used</h2>
+<ul>
+  <li>JavaScript</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Rollup</li>
+  <li>localStorage</li>
+</ul>
