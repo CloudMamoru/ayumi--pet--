@@ -196,7 +196,7 @@ function renderMenu({ habits, activeHabit, rerender, page }) {
   }
 }
 
-'use strict';
+('use strict');
 
 /**
  * * Object containing references to DOM elements for easy access throughout the app.
