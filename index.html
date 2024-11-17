@@ -12,16 +12,13 @@
     rel="stylesheet" />
 
   <title>Ayumi</title>
-  <script src="scripts/app.js" defer></script>
+  <script src="build/main.js" defer></script>
 </head>
 
 <body>
   <div class="app">
-    <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Logo -->
       <img src="images/logo.svg" alt="logo" class="logo">
-      <!-- Menu -->
       <nav class="menu">
         <div class="menu__list">
           <!-- Elements from localStorage -->
@@ -33,21 +30,24 @@
 
     </div>
     <div class="content">
-      <!-- Header -->
       <header class="header">
-        <h1 class="h1">-</h1>
-        <div class="progress">
-          <div class="progress__text">
-            <div class="progress__name">Progress</div>
-            <div class="progress__percent">%</div>
-          </div>
-          <div class="progress__bar">
-            <div class="progress__cover-bar">
+        <h1 class="h1">Habit tracker</h1>
+        <div class="header__wrapper">
+          <div class="progress">
+            <div class="progress__text">
+              <div class="progress__name">Progress</div>
+              <div class="progress__percent">%</div>
+            </div>
+            <div class="progress__bar">
+              <div class="progress__cover-bar">
+              </div>
             </div>
           </div>
+          <button class="header__close-btn" onclick="closeHabit()">
+            <img src="images/close_habit.svg" alt="Close habit" />
+          </button>
         </div>
       </header>
-      <!-- Main -->
       <main class="main">
         <div class="days">
           <!-- Elements -->

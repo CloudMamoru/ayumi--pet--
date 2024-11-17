@@ -1,0 +1,24 @@
+{
+  "name": "ayumi",
+  "version": "1.0.0",
+  "description": "Habit tracker app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CloudMamoru/ayumi--pet--.git"
+  },
+  "author": "CloudMamoru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CloudMamoru/ayumi--pet--/issues"
+  },
+  "homepage": "https://github.com/CloudMamoru/ayumi--pet--#readme",
+  "devDependencies": {
+    "rollup": "^4.26.0",
+    "rollup-plugin-import-css": "^3.5.6"
+  }
+}
