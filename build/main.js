@@ -381,3 +381,4 @@ function closeHabit() {
 
   rerender(currentId);
 })();
+//# sourceMappingURL=main.js.map
