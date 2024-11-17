@@ -1,6 +1,17 @@
-# Need to do
-1. Картинку заглушку если данные пустые 
-2. Адаптивную верстку 
-3. Удаление привычки
-4. Отчистка привычки
-5. Добавление новой привычки через настройки
+# Ayumi - Habit tracker
+
+<h2>About project</h2>
+<p>
+<b>Ayumi</b> is a modern habit tracking tool created to help people achieve
+their goals and form healthy habits in a comfortable and motivating environment.
+</p>
+
+<h2>Application functionality</h2>
+1.Adding a new habit
+![Adding a new habit](/md_icons/addNewHabit.png)
+
+2.Add a daily comment to track your progress
+![Add daily comment](/md_icons/dailyComment.png)
+
+3.Check your progress
+![Check progress](/md_icons/checkProgress.png)
