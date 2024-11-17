@@ -7,7 +7,7 @@ their goals and form healthy habits in a comfortable and motivating environment.
 <h2>Application functionality</h2>
 
 1.Adding a new habit<br>
-![Adding a new habit](/md_icons/addNewHabit.png)
+![Adding a new habit](/md_icons/addNew.png)
 
 2.Add a daily comment to track your progress<br>
 ![Add daily comment](/md_icons/dailyComment.png)
