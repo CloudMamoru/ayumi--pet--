@@ -180,12 +180,8 @@ function closeHabit() {
 /* init */
 (() => {
   loadData(state.habits, state.HABIT_KEY);
-  console.log('state:');
-  console.log(state);
   const hash = document.location.hash;
   const currentId = hash ? Number(hash.slice(1)) : 0;
-  console.log(`hash: ${hash}`);
-  console.log(`currentId: ${currentId}`);
 
   rerender(currentId);
 })();
