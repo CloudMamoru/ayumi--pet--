@@ -23,3 +23,8 @@ their goals and form healthy habits in a comfortable and motivating environment.
   <li>Rollup</li>
   <li>localStorage</li>
 </ul>
+
+<h2>Need to do</h2>
+<ul>
+  <li>Adaptive layout</li>
+</ul>
