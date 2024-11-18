@@ -1,30 +1,43 @@
-<h2>About project</h2>
-<p>
-<b>Ayumi</b> is a modern habit tracking tool created to help people achieve
-their goals and form healthy habits in a comfortable and motivating environment.
-</p>
+# Ayumi - Habit Tracker
 
-<h2>Application functionality</h2>
+Ayumi is a user-friendly habit tracking tool designed to help people achieve their goals and form healthy habits in an enjoyable and motivating environment.
 
-1.Adding a new habit<br>
-![Adding a new habit](/md_icons/addNew.png)
+---
 
-2.Add a daily comment to track your progress<br>
-![Add daily comment](/md_icons/dailyComment.png)
+## 📝 About the Project
 
-3.You can have an unlimited number of habits and switch between them<br>
-![habits](/md_icons/habits.png)
+**Ayumi** is a pet project built entirely with vanilla JavaScript to practice and strengthen skills without relying on frameworks like React. This project focuses on simplicity, performance, and understanding core web development principles.
 
-<h2>Technologies used</h2>
-<ul>
-  <li>JavaScript</li>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>Rollup</li>
-  <li>localStorage</li>
-</ul>
+---
 
-<h2>Need to do</h2>
-<ul>
-  <li>Adaptive layout</li>
-</ul>
+## ✨ Features
+
+1. **Add a New Habit**  
+   Easily add new habits to track and start building your routine.  
+   ![Adding a new habit](/md_icons/addNew.png)
+
+2. **Daily Comments**  
+   Keep track of your progress by adding daily comments for each habit.  
+   ![Add daily comment](/md_icons/dailyComment.png)
+
+3. **Unlimited Habits**  
+   Add and manage as many habits as you like, and easily switch between them.  
+   ![Habits](/md_icons/habits.png)
+
+---
+
+## 🛠️ Technologies Used
+
+- **JavaScript**  
+- **HTML**  
+- **CSS**  
+- **Rollup** – For bundling the JavaScript code.  
+- **localStorage** – For saving user data locally without requiring a backend.
+
+---
+
+## 🚀 Getting Started
+
+### Try the app
+
+https://cloudmamoru.github.io/ayumi--pet--/
